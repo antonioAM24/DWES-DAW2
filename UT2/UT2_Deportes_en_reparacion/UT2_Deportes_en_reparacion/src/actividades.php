@@ -5,7 +5,7 @@ declare(strict_types=1);
 function limpiarEspacios(string $texto): string
 {
     // TODO 1: limpiar extremos y agrupar espacios consecutivos.
-    return preg_replace('/\s+/', '', trim($texto));
+    return preg_replace('/\s+/', ' ', trim($texto));
 }
 
 function normalizarBusqueda(string $texto): string
@@ -24,7 +24,7 @@ function obtenerCategorias(array $actividades): array
 
 function categoriaValida(string $categoria, array $categorias): bool
 {
-    return $categoria === '' || (bool) array_search($categoria, $categorias, true) !== false;
+    return $categoria === ' ' || (bool) array_search($categoria, $categorias, true) !== false;
 }
 
 function plazasOcupadas(array $reservas, int $actividadId): int
@@ -33,7 +33,7 @@ function plazasOcupadas(array $reservas, int $actividadId): int
     $confirmadas = array_filter(
         $reservas,
         fn(array $a): bool =>
-        $a['actividad'] === $actividadId && $a['estado'] === 'confirmada'
+        $a['actividadId'] === $actividadId && $a['estado'] === 'confirmada'
     );
     return array_reduce(
         $confirmadas,
@@ -56,6 +56,7 @@ function prepararActividades(array $actividades, array $reservas): array
     );
 }
 
+// TODO 3: filtrar por nombre, categoría y plazas libres.
 function filtrarActividades(
     array $actividades,
     string $texto,
@@ -63,17 +64,13 @@ function filtrarActividades(
     bool $soloConPlazas
 ): array
 {
-    // TODO 3: filtrar por nombre, categoría y plazas libres.
-    if($texto === '' || $categoria === '')
-        return $actividades;
-    if(!$soloConPlazas)
-        return $actividades;
+
     return array_filter(
         $actividades,
-        fn(array $a): bool =>
-        str_contains(normalizarBusqueda($a['nombre']), normalizarBusqueda($texto)) &&
-        str_contains(normalizarBusqueda($a['categoria']), normalizarBusqueda($categoria)) &&
-        $soloConPlazas,
+        fn (array $a) : bool =>
+            str_contains(normalizarBusqueda($a['nombre']), normalizarBusqueda($texto)) &&
+            $categoria === ' ' || normalizarBusqueda($a['categoria']) === normalizarBusqueda($categoria) &&
+            $soloConPlazas ? $a['libres'] > 0 : true
     );
 }
 
@@ -83,7 +80,8 @@ function ordenarActividades(array $actividades, string $orden): array
     usort(
         $actividades,
         fn(array $a, array $b): int =>
-        ($a[$orden] <=> $b[$orden]) === 0 ? $a['id'] <=> $b['id'] : $a[$orden],
+        $orden === 'libres' ? (($a[$orden] <=> $b[$orden]) === 0 ?: $a['id'] <=> $b['id'])
+        : ((normalizarBusqueda($a[$orden]) <=> normalizarBusqueda($b[$orden])) ?: $a['id'] <=> $b['id']),
     );
     return $actividades;
 }
@@ -152,15 +150,17 @@ function buscarPorId(array $actividades, int|string $id): ?array
 function monitorVisible(?string $monitor): string
 {
     // TODO 11: resolver el caso de monitor null.
-    return '';
+    if($monitor === null)
+    return 'monitor no encontrado'; 
+    return is_null($monitor) ? 'monitor pendiente' : $monitor;
 }
 
 function inicioNombre(string $nombre): string
 {
-    return substr(limpiarEspacios($nombre), 0, 3);
+    return mb_substr(limpiarEspacios($nombre), 0, 3, 'UTF-8');
 }
 
 function codigoValido(string $codigo): bool
 {
-    return preg_match('/DEP-[0-9]+-[0-9]+/', $codigo) === 1;
+    return preg_match('/^DEP-[0-9]{4}-[0-9]{4}$/', $codigo) === 1;
 }
