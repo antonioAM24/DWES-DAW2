@@ -12,7 +12,6 @@
 // Identifica la clase, el objeto y su estado.
 
 
-
 class libro {
     public string $titulo;
     public string $autor;
