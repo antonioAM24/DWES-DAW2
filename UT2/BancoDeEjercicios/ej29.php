@@ -19,7 +19,11 @@ $libro = new Libro();
 $titulo = "Solaris";
 $paginas = 216;
 
+<<<<<<< HEAD
 echo "Titulo: " . $libro - > $titulo . "<br>";
+=======
+echo "Titulo: " . $libro -> $titulo . "<br>";
+>>>>>>> f89240161a3c7263100391d238f5415b388ce0f6
 echo "Paginas: " . $libro -> $paginas . "<br>";
 
 ?>
