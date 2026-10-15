@@ -10,20 +10,14 @@
 }
 /* Si intentamos leer el titulo al crear el objeto, nos va a saltar un error de que $titulo no esta inicializando 
 por lo cual se necesita inicializarlo antes de crear el objeto */
-$libro = new Libro();
+$libro = new Libro("Solaris", 216);
 //echo $libro -> titulo;
 
 // Asigna 'Solaris' a titulo y 216 a paginas antes de leerlas. Comprueba que final permite crear el objeto
 // y modificar sus propiedades públicas. Explica por qué una clase hija que use extends Libro sería
 // rechazada, sin incorporarla al archivo que ejecutas.
-$titulo = "Solaris";
-$paginas = 216;
 
-<<<<<<< HEAD
-echo "Titulo: " . $libro - > $titulo . "<br>";
-=======
-echo "Titulo: " . $libro -> $titulo . "<br>";
->>>>>>> f89240161a3c7263100391d238f5415b388ce0f6
-echo "Paginas: " . $libro -> $paginas . "<br>";
+
+print_r($libro);
 
 ?>
