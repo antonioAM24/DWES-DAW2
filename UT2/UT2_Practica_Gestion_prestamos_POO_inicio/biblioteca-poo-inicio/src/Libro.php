@@ -9,8 +9,8 @@ final class Libro
         public int $id,
         public string $titulo,
         public int $paginas,
-        public Autor $autor,
-        public Categoria $Categoria,
+        public ?Autor $autor,
+        public Categoria $categoria,
         public bool $disponible = true)
     {
         
@@ -26,9 +26,21 @@ final class Libro
         $paginas = 1;
     }
 
-
+    }
 
     // Fase 5: prestar(), devolver() y ficha().
-    }  
+    public function prestar(): void {
+        $this->disponible = false;
+    }
+
+    public function devolver(): void {
+        $this->disponible = true;
+    }
+    public function ficha(): string {
+        $nombreAutor = $this->autor?->nombre ?? 'Sin Título';
+        return "{$this->titulo} / {$nombreAutor} / {$this->categoria->nombre} / {$this->paginas} páginas";
+    }
+
+    
 }
 ?>

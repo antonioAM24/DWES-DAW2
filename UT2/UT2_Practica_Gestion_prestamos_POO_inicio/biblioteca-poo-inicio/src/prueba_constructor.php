@@ -30,11 +30,11 @@ $autor = new autor(" Who? ");
 $categoria = new categoria(" nothing ");
 
 $libro1 = new libro(1,'Dune', 412, $autor, $categoria);
-// $libro2 = new libro();
-// $libro3 = new libro();
-// $libro4 = new libro();
-// $libro5 = new libro();
-// $libro6 = new libro();
-// $libro7 = new libro();
+$libro2 = new libro(2,' Dune ', 412, $autor, $categoria);
+$libro3 = new libro(3,'', 100, $autor, $categoria);
+$libro4 = new libro(4,'    ', 100, $autor, $categoria);
+$libro5 = new libro(5,'Solaris', 0, $autor, $categoria);
+$libro6 = new libro(6,'Solaris', -5, $autor, $categoria);
+$libro7 = new libro(7,'    ', 0, $autor, $categoria);
 
 ?>

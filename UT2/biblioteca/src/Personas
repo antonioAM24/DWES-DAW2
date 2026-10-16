@@ -1,0 +1,7 @@
+// src/Model/Personas/Autor.php
+namespace App\Model\Personas;
+
+// public/index.php
+use App\Model\Personas\Autor;
+
+$autor = new Autor('Frank Herbert');

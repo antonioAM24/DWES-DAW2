@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model;
 class Libro
 {
@@ -11,5 +10,3 @@ class Libro
  return $this->titulo;
  }
 }
-
-?>
