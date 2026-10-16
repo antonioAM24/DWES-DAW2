@@ -32,10 +32,11 @@ $otro = $libros[1];
 
 $mensajes = [];
 
+
 $mensajes[] = 'Disponible: '
  . ($dune->disponible ? 'true' : 'false');
 
-
+$dune -> prestar();
 $dune -> devolver();
 
 // Lectura del formulario facilitada. La búsqueda conserva el texto escrito.
