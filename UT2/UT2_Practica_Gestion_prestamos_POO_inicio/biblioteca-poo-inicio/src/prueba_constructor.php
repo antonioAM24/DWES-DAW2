@@ -37,4 +37,25 @@ $libro5 = new libro(5,'Solaris', 0, $autor, $categoria);
 $libro6 = new libro(6,'Solaris', -5, $autor, $categoria);
 $libro7 = new libro(7,'    ', 0, $autor, $categoria);
 
+echo $libro1->titulo . PHP_EOL;
+echo $libro1->paginas . PHP_EOL;
+
+echo $libro2->titulo . PHP_EOL;
+echo $libro2->paginas . PHP_EOL;
+
+echo $libro3->titulo . PHP_EOL;
+echo $libro3->paginas . PHP_EOL;
+
+echo $libro4->titulo . PHP_EOL;
+echo $libro4->paginas . PHP_EOL;
+
+echo $libro5->titulo . PHP_EOL;
+echo $libro5->paginas . PHP_EOL;
+
+echo $libro6->titulo . PHP_EOL;
+echo $libro6->paginas . PHP_EOL;
+
+echo $libro7->titulo . PHP_EOL;
+echo $libro7->paginas . PHP_EOL;
+
 ?>
