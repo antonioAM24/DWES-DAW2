@@ -5,14 +5,14 @@ require_once __DIR__ . '/Autor.php';
 require_once __DIR__ . '/Categoria.php ';
 require_once __DIR__ . '/Libro.php'; /*Fase 2.2*/
 
-// Fase 2.1: crea aquí un Autor y una Categoria y muestra sus nombres. ✅
+// Fase 2.1: crea aquí un Autor y una Categoria y muestra sus nombres. 
 // $autor = new autor(" Frank Herbert ");
 // $categoria = new categoria(" ciencia ficción ");
 
 // echo $autor -> nombre;
 // echo $categoria -> nombre;
 
-// Fase 2.2: cuando completes Libro.php, añade su require_once arriba. ✅
+// Fase 2.2: cuando completes Libro.php, añade su require_once arriba. 
 // Después crea los dos libros y muestra su disponibilidad. 
 
 // $libroº1 = new libro(10, "Dune", 412, $autor, $categoria);
@@ -36,5 +36,26 @@ $libro4 = new libro(4,'    ', 100, $autor, $categoria);
 $libro5 = new libro(5,'Solaris', 0, $autor, $categoria);
 $libro6 = new libro(6,'Solaris', -5, $autor, $categoria);
 $libro7 = new libro(7,'    ', 0, $autor, $categoria);
+
+echo $libro1->titulo . PHP_EOL;
+echo $libro1->paginas . PHP_EOL;
+
+echo $libro2->titulo . PHP_EOL;
+echo $libro2->paginas . PHP_EOL;
+
+echo $libro3->titulo . PHP_EOL;
+echo $libro3->paginas . PHP_EOL;
+
+echo $libro4->titulo . PHP_EOL;
+echo $libro4->paginas . PHP_EOL;
+
+echo $libro5->titulo . PHP_EOL;
+echo $libro5->paginas . PHP_EOL;
+
+echo $libro6->titulo . PHP_EOL;
+echo $libro6->paginas . PHP_EOL;
+
+echo $libro7->titulo . PHP_EOL;
+echo $libro7->paginas . PHP_EOL;
 
 ?>
