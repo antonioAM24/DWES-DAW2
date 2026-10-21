@@ -76,7 +76,7 @@ abstract class Juego implements Prestable
     public function devolver(): void
     {
         if (! $this->prestado) {
-            throw new PrestamoException('El juego no está prestado.');
+            throw new PrestamoException('El juego no esta prestado.');
         }
         $this->prestado = false;
         $this->dias = 0;
