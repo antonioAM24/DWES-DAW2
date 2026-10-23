@@ -2,7 +2,7 @@
 
 // namespace Clase\Alquileres\Modelo;
 
-// abstract class Alquiler{
+// abstract class Alquiler {
 //     private int $id;
 //     private string $cliente;
 //     private int $dias;
