@@ -1,0 +1,10 @@
+{
+    "name": "antonio/biblioteca",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "antonio\\biblioteca\\": "src/"
+        }
+    },
+    "require": {}
+}
