@@ -41,5 +41,43 @@
  <button type="submit">Buscar</button>
  </form>
 
+ <table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Género</th>
+            <th>Tipo</th>
+            <th>Páginas</th>
+            <th>unidades</th>
+            <th>Coste de reposición</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            foreach($filas as $fila){
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($fila['titulo'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')  . "</td>";
+                echo "<td>" . htmlspecialchars($fila['autor'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')  . "</td>";
+                echo "<td>" . htmlspecialchars($fila['genero'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')  . "</td>";
+                echo "<td>" . htmlspecialchars($fila['tipo'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')  . "</td>";
+                echo "<td>" . $fila['paginas'] . "</td>";
+                echo "<td>" . $fila['unidades'] . "</td>";
+                echo "<td>" . $fila['costeCentimos'] . "</td>";
+                echo "</tr>";
+            }
+        ?>
+    </tbody>
+ </table>
+ <?php endif; ?>
+ <h2>resumen</h2>
+ <h3>numero de titulos</h3>
+ <p><?= $resumen['titulos']?></p>
+ <h3>unidades</h3>
+ <p><?= $resumen['unidades']?></p>
+ <h3>paginas</h3>
+ <p><?= $resumen['paginas']?></p>
+ <h3>Coste total</h3>
+ <p><?= $resumen['costeCentimos']?></p>
 </body>
 </html>
